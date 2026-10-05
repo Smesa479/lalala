@@ -1,0 +1,21 @@
+lsn,txn_id,timestamp,user_id,table_name,log_type,record_id,attribute,before_image,after_image,note
+1,1,2026-10-04 19:28:21.484279,sim_user,database,BEGIN,2,,,,Transaction started
+2,1,2026-10-04 19:28:21.492204,sim_user,database,UPDATE,2,balance,403,584,Before/after image logged ahead of the write
+3,1,2026-10-04 19:28:21.492732,sim_user,database,ROLLBACK,2,balance,584,403,"Deadlock time-out - change undone from journal, nothing written to disk"
+4,1,2026-10-04 19:28:21.492741,sim_user,database,END,2,,,,Transaction ended (rolled back)
+5,2,2026-10-04 19:28:21.594905,sim_user,database,BEGIN,9,,,,Transaction started
+6,2,2026-10-04 19:28:21.601899,sim_user,database,UPDATE,9,balance,883,296,Before/after image logged ahead of the write
+7,2,2026-10-04 19:28:21.610496,sim_user,database,COMMIT,9,balance,883,296,Write persisted to database.xlsx
+8,2,2026-10-04 19:28:21.610510,sim_user,database,END,9,,,,Transaction ended (committed)
+9,3,2026-10-04 19:28:21.715649,sim_user,database,BEGIN,1,,,,Transaction started
+10,3,2026-10-04 19:28:21.727581,sim_user,database,UPDATE,1,balance,190,920,Before/after image logged ahead of the write
+11,3,2026-10-04 19:28:21.728506,sim_user,database,ROLLBACK,1,balance,920,190,"Deadlock time-out - change undone from journal, nothing written to disk"
+12,3,2026-10-04 19:28:21.728525,sim_user,database,END,1,,,,Transaction ended (rolled back)
+13,4,2026-10-04 19:28:21.833616,sim_user,database,BEGIN,3,,,,Transaction started
+14,4,2026-10-04 19:28:21.844412,sim_user,database,UPDATE,3,balance,329,311,Before/after image logged ahead of the write
+15,4,2026-10-04 19:28:21.852410,sim_user,database,COMMIT,3,balance,329,311,Write persisted to database.xlsx
+16,4,2026-10-04 19:28:21.852428,sim_user,database,END,3,,,,Transaction ended (committed)
+17,5,2026-10-04 19:28:21.957933,sim_user,database,BEGIN,13,,,,Transaction started
+18,5,2026-10-04 19:28:21.971022,sim_user,database,UPDATE,13,balance,251,133,Before/after image logged ahead of the write
+19,5,2026-10-04 19:28:21.983498,sim_user,database,COMMIT,13,balance,251,133,Write persisted to database.xlsx
+20,5,2026-10-04 19:28:21.983523,sim_user,database,END,13,,,,Transaction ended (committed)
